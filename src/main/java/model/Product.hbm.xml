@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 14, 2019 4:22:49 PM by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="model.Product" table="product" catalog="hibernate_test" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="model.Category" fetch="select">
+            <column name="CATE_ID" not-null="true" />
+        </many-to-one>
+        <property name="code" type="string">
+            <column name="CODE" length="100" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
